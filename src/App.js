@@ -92,7 +92,7 @@ function App() {
         str += key + "=" + encodeURIComponent(text[i][key]);
       }
     }
-    let a = new URL(str, "http://localhost:3000/").href;
+    let a = new URL(str, window.location.href).href;
     navigator.clipboard.writeText(a);
     console.log(decodeURI(a));
     console.log(a);
