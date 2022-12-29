@@ -12,10 +12,11 @@ function App() {
   if (localStorage.length == 0) {
     a = initNotes;
   }
-  if (window.location.href != "http://localhost:3000/") {
+  if (window.location.href.includes("id=")) {
     let a = {};
     let link = window.location.href;
-    link = link.slice(22);
+
+    link = link.slice(link.indexOf("id="));
     console.log(link);
     let g = [];
     for (;;) {
