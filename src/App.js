@@ -4,9 +4,7 @@ import Users from "./users.js";
 import Employee from "./employee.js";
 import { useState, useRef } from "react";
 let initNotes = [];
-console.log("a");
 function App() {
-  debugger;
   let a = JSON.parse(localStorage.getItem("key"));
   let number = 2;
   if (localStorage.length == 0) {
