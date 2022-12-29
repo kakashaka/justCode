@@ -5,6 +5,7 @@ import Employee from "./employee.js";
 import { useState, useRef } from "react";
 let initNotes = [];
 function App() {
+  debugger;
   let a = JSON.parse(localStorage.getItem("key"));
   let number = 2;
   if (localStorage.length == 0) {
