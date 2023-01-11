@@ -78,7 +78,6 @@ function App() {
     dragOverItem.current = position;
   };
   function copy() {
-    debugger;
     let str = "";
     for (let i = 0; i < text.length; i++) {
       for (let key in text[i]) {
@@ -91,7 +90,6 @@ function App() {
     let a = new URL(str, window.location.href).href;
     let index = a.indexOf("id") - 1;
     a = a.split("");
-    debugger;
     a[index] = "?";
     a = a.join("");
     navigator.clipboard.writeText(a);
