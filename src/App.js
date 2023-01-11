@@ -18,7 +18,6 @@ function App() {
     console.log(link);
     let g = [];
     for (;;) {
-      debugger;
       a.id = Number(link.slice(link.indexOf("=") + 1, link.indexOf("&")));
       link = link.slice(link.indexOf("&") + 1);
       a.name = link.slice(link.indexOf("=") + 1, link.indexOf("&"));
@@ -49,7 +48,6 @@ function App() {
         break;
       }
     }
-    debugger;
     if (
       JSON.parse(localStorage.getItem("key")) !== null &&
       JSON.parse(localStorage.getItem("key")).length !== 0
@@ -90,13 +88,17 @@ function App() {
         str += key + "=" + encodeURIComponent(text[i][key]);
       }
     }
+    debugger;
     let a = new URL(str, window.location.href).href;
+    let index = a.indexOf("id") - 1;
+    a = a.split("");
+    a[index] = "?";
+    a = a.join("");
     navigator.clipboard.writeText(a);
     console.log(decodeURI(a));
     console.log(a);
   }
   const drop = (event) => {
-    debugger;
     const copyListItems = [...text];
     const dragItemContent = copyListItems[dragItem.current];
     copyListItems.splice(dragItem.current, 1);
@@ -107,7 +109,6 @@ function App() {
     localStorage.setItem("key", JSON.stringify([...copyListItems]));
   };
   function add(text1) {
-    debugger;
     let name = text1.split("\n")[0];
     if (name.length > 10) {
       name = name.slice(0, 10);
@@ -119,14 +120,11 @@ function App() {
     a.isReady = false;
     a.isEdit = false;
     a.isRedact = false;
-    debugger;
     setText([...text, a]);
     setValue([Number(value) + 1]);
-    debugger;
     localStorage.setItem("key", JSON.stringify([...text, a]));
   }
   function search() {
-    debugger;
     let a = text.filter((item1, index) => {
       if (item1.text.includes(value3)) {
         return true;
@@ -183,7 +181,6 @@ function App() {
                 showTextArea(item.id);
                 setText(
                   text.map((item1, index) => {
-                    debugger;
                     if (item1.id == item.id) {
                       item1.isEdit = !item1.isEdit;
                       item1.isRedact = !item1.isRedact;
@@ -218,7 +215,6 @@ function App() {
               onChange={(event) => {
                 let a = text.map((item1, index) => {
                   if (item1.id == item.id) {
-                    debugger;
                     item1.name = event.target.value.split("\n")[0].slice(0, 10);
                     item1.text = event.target.value;
                   }
