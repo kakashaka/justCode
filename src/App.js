@@ -88,10 +88,10 @@ function App() {
         str += key + "=" + encodeURIComponent(text[i][key]);
       }
     }
-    debugger;
     let a = new URL(str, window.location.href).href;
     let index = a.indexOf("id") - 1;
     a = a.split("");
+    debugger;
     a[index] = "?";
     a = a.join("");
     navigator.clipboard.writeText(a);
